@@ -10,7 +10,7 @@ def main():
 
 	uname = makeName(names)
 	passwd = makePass()
-	print("Account made. Your new email address is", uname+"@marist.edu")
+	print("Account made. Your new email address is", uname.lower()+"@marist.edu")
 	
 
 def getNames():
@@ -27,10 +27,19 @@ def makePass():
 	#ask user for password
 	passwd = input("Make a password for your email. ")
 
-	while (len(passwd) < 8):
-		passwd = input("You need a longer password! 8 characters at least. ")
+	while (PassStrength(passwd) == False):
+		passwd = input("You need a better password! 8 characters at least, one upper and one lowercase! ")
 	print("That's a good password.")
 
 	return passwd
+
+def PassStrength(passwd):
+		if (len(passwd) < 8):
+			return False
+		if (passwd.lower() == passwd):
+			return False
+		if (passwd.upper() == passwd):
+			return False
+		return True
 
 main()
