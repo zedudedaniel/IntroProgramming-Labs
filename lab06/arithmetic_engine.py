@@ -36,7 +36,12 @@ def calculate(num1, cmd, num2):
 	elif cmd == "mult":
 		return (num1 * num2)
 	elif cmd == "div":
+		if num2 == 0:
+			print("Unable to divide by zero!")
+			return 0
 		return (num1 / num2)
+
+def tryNumbers()
 
 def main():
 	show_intro()
